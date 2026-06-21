@@ -1,4 +1,4 @@
-# mqbg
+<h2 align="center"># mqbg</h2>
 <p align="center">mqbg is a custom animated wallpaper tool written with quickshell</p>
 <hr>
 mqbg(Moving Quickshell BackGround) uses quickshell to animate 2 PNG images(background and foreground with transparent background) and libinput to track cursor location on any DE or WM, no matter Xorg or Wayland
