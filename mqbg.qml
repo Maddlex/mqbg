@@ -16,8 +16,8 @@ PanelWindow {
   property int varY: 540
   Image {
     anchors.centerIn: parent
-    anchors.horizontalCenterOffset: -varX / 90 + 12
-    anchors.verticalCenterOffset: -varY / 90 + 6
+    anchors.horizontalCenterOffset: -varX / 90
+    anchors.verticalCenterOffset: -varY / 90
     source: "./BGForSprite.png"
     sourceSize.width: 2016
     sourceSize.height: 1134
@@ -26,7 +26,7 @@ PanelWindow {
   Image {
     anchors.verticalCenter: parent.verticalCenter
     anchors.horizontalCenter: parent.horizontalCenter
-    anchors.horizontalCenterOffset: varX / 90 + 50
+    anchors.horizontalCenterOffset: varX / 90 //90 stands for how fast is it moving - the lower the value the faster FG is moving
     anchors.verticalCenterOffset: varY / 90
     source: "./Sprite.png"
     sourceSize.width: 1920
