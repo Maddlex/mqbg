@@ -6,12 +6,12 @@ echo "Installing dependencies..."
 
 if command -v apt >/dev/null; then
   sudo apt update
-  sudo apt install -y libinput-tools libinput-dev git cmake build-essential ninja-build quickshell
+  sudo apt install -y libinput-tools libinput-dev quickshell
 elif command -v dnf >/dev/null; then
   sudo dnf copr enable errornointernet/quickshell
-  sudo dnf install -y libinput libinput-devel git cmake gcc-c++ ninja-build quickshell
+  sudo dnf install -y libinput libinput-devel quickshell
 elif command -v pacman >/dev/null; then
-  sudo pacman -S --noconfirm libinput git cmake base-devel ninja quickshell
+  sudo pacman -S --noconfirm --needed libinput libinput-tools quickshell
 else
   echo "Sorry, but looks like we can't install libinput dependency on your distro :("
   echo "You can try to build it manually or use another tool to fetch your cursor coordinates and rewrite this whole package, I dunno..."
