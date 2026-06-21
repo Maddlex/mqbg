@@ -48,5 +48,14 @@ EOF
 
 sudo chmod +x /usr/bin/mqbg
 
+if [ -n "$SUDO_USER" ]; then
+    TARGET_USER="$SUDO_USER"
+else
+    TARGET_USER="$USER"
+fi
+
+sudo usermod -aG input "$TARGET_USER"
+exec sg input "$SHELL"
+
 echo "mqbg is now installed! define wallpaper background and foreground by typing mqbg --set /path/to/background /path/to/foreground"
 echo "(remember that foreground should have transparent background)"
