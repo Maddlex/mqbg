@@ -57,5 +57,5 @@ fi
 sudo usermod -aG input "$TARGET_USER"
 exec sg input "$SHELL"
 
-echo "mqbg is now installed! define wallpaper background and foreground by typing mqbg --set /path/to/background /path/to/foreground"
+echo "mqbg is now installed! Reboot your PC for changes to take effect and define wallpaper background and foreground by typing mqbg --set /path/to/background /path/to/foreground"
 echo "(remember that foreground should have transparent background)"
