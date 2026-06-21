@@ -35,7 +35,7 @@ PanelWindow {
   }
   Process {
     id: mouseLocation
-    command: ["sh", "-c", "~/.config/quickshell/scripts/getMouseLocation.sh"]
+    command: ["sh", "-c", "~/mqbg/getMouseLocation.sh"]
     running: true
     stdout: SplitParser {
       onRead: data => {
