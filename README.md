@@ -9,9 +9,9 @@ mqbg command (without flags) activates the service itself(warning! using without
 <hr>
 <h1 align="center">Installation</h1>
 ...
-git clone https://github.com/Maddlex/mqbg<br>
-cd mqbg<br>
-chmod +x install.sh<br>
+git clone https://github.com/Maddlex/mqbg
+cd mqbg
+chmod +x install.sh
 ./install.sh
 ...
 <h1 align="center">Warning!</h1>
