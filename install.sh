@@ -20,6 +20,8 @@ fi
 
 sudo tee /usr/bin/mqbg >/dev/null <<'EOF'
 
+#!/bin/bash
+
 if [ ! -x "$HOME/mqbg/getMouseLocation.sh" ]; then
   chmod +x "$HOME/mqbg/getMouseLocation.sh"
 fi
@@ -29,6 +31,7 @@ if [ $# -eq 0 ]; then
     echo "qs(quickshell) not found... You just installed it, didn't you..?"
     exit 1
   }
+  pkill qs
   qs -p "$HOME/mqbg/mqbg.qml" > /dev/null 2>&1 & disown
 fi
 
@@ -43,7 +46,23 @@ case "$1" in
     cp "$2" "$HOME/mqbg/BGForSprite.png" || exit 1
     cp "$3" "$HOME/mqbg/Sprite.png" || exit 1
     ;;
+  --move)
+    if [ $# -ne 5 ]; then
+      echo "Usage: mqbg --move <BG horizontal> <BG vertical> <FG horizontal> <FG vertical>"
+      exit 1
+    fi
+    BGh="$2"
+    BGv="$3"
+    FGh="$4"
+    FGv="$5"
+    echo "BGh=$BGh BGv=$BGv FGh=$FGh FGv=$FGv" > "$HOME/mqbg/config.txt"
+    ;;
+  --help)
+    echo "mqbg - starts mqbg with current configuration"
+    echo "mqbg --set <bg> <fg> - sets background and forground images"
+    echo "mqbg --move <BG horizontal> <BG vertical> <FG horizontal> <FG vertical> - sets speed and offset of background and foregroung moving"
 esac
+
 EOF
 
 sudo chmod +x /usr/bin/mqbg
