@@ -5,7 +5,7 @@
 mqbg(Moving Quickshell BackGround) uses quickshell to animate 2 PNG images(background and foreground with transparent background) and libinput to track cursor location on any DE or WM, no matter Xorg or Wayland
 <hr>
 <h1 align="center">Usage</h1>
-mqbg command (without flags) activates the service itself(warning! using without defining wallpaper will result in white screen)<br>mqbg --set [path/to/background] [path/to/foreground] sets background and foreground files(does NOT activate the service itself!)<br>mqbg --move [BG horizontal] [BG vertical] [FG horizontal] [FG vertical] sets distance of offset for sprite and background when you move your mouse. Affects moving speed as well<br>mqbg --help outputs this(almost identical) help message
+* mqbg command (without flags) activates the service itself(warning! using without defining wallpaper will result in white screen)<br>* mqbg --set [path/to/background] [path/to/foreground] sets background and foreground files(does NOT activate the service itself!)<br>* mqbg --move [BG horizontal] [BG vertical] [FG horizontal] [FG vertical] sets distance of offset for sprite and background when you move your mouse. Affects moving speed as well<br>* mqbg --help outputs this(almost identical) help message
 <hr>
 <h1 align="center">Installation</h1>
 
