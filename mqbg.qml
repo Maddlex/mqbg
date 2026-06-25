@@ -14,10 +14,14 @@ PanelWindow {
   height: 1080
   property int varX: 960
   property int varY: 540
+  property int bgh: 90
+  property int bgv: 90
+  property int fgh: 90
+  property int fgv: 90
   Image {
     anchors.centerIn: parent
-    anchors.horizontalCenterOffset: -varX / 90
-    anchors.verticalCenterOffset: -varY / 90
+    anchors.horizontalCenterOffset: -varX / bgh + 12
+    anchors.verticalCenterOffset: -varY / bgv + 6
     source: "./BGForSprite.png"
     sourceSize.width: 2016
     sourceSize.height: 1134
@@ -26,8 +30,8 @@ PanelWindow {
   Image {
     anchors.verticalCenter: parent.verticalCenter
     anchors.horizontalCenter: parent.horizontalCenter
-    anchors.horizontalCenterOffset: varX / 90 //90 stands for how fast is it moving - the lower the value the faster FG is moving
-    anchors.verticalCenterOffset: varY / 90
+    anchors.horizontalCenterOffset: varX / fgh + 22
+    anchors.verticalCenterOffset: varY / fgv
     source: "./Sprite.png"
     sourceSize.width: 1920
     sourceSize.height: 1080
@@ -44,6 +48,22 @@ PanelWindow {
         if (match) {
           varX = parseInt(match[1], 10);
           varY = parseInt(match[2], 10);
+        }
+      }
+    }
+  }
+  Process {
+    id: offsets
+    command: ["sh", "-c", "cat ~/mqbg/config.txt"]
+    running: true
+    stdout: SplitParser {
+      onRead: data => {
+        let matches = data.match(/\d+/g);
+        if (matches) {
+          bgh = parseInt(matches[0], 10);
+          bgv = parseInt(matches[1], 10);
+          fgh = parseInt(matches[2], 10);
+          fgv = parseInt(matches[3], 10);
         }
       }
     }
